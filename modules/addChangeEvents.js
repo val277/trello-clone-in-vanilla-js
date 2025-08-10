@@ -21,10 +21,10 @@ export const addChangeEvents = function (element) {
         } else {
           const toReplace = dataElement.tasks.indexOf(
             dataElement.tasks.find(
-              (task) => task === element.textContent.replace("❌", "")
+              (task) => task.title === element.textContent.replace("❌", "")
             )
           );
-          dataElement.tasks[toReplace] = input.value;
+          dataElement.tasks[toReplace].title = input.value;
         }
         saveData(data);
       } else {

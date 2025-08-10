@@ -101,7 +101,7 @@ const createCard = function (cardData) {
   if (cardData.tasks) {
     cardData.tasks.forEach((el, index) => {
       const task = document.createElement("li");
-      task.textContent = el;
+      task.textContent = el.title;
       task.draggable = "true";
       addTaskDragAndDrop(task);
 

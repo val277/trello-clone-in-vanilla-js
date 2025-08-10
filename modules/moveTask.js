@@ -12,6 +12,11 @@ export const moveTask = function (
   const oldCard = data.find((el) => el.title === oldCardTitle);
   const newCard = data.find((el) => el.title === newCardTitle);
 
+  const tasks = data.reduce((acc, card) => {
+    card.tasks.forEach((task) => acc.push(task));
+    return acc;
+  }, []);
+
   const containerToAppend = Array.from(document.querySelectorAll(".card")).find(
     (el) => el.querySelector("h3").textContent === newCardTitle
   );
@@ -22,7 +27,7 @@ export const moveTask = function (
     ).find((el) => el.textContent.replace("❌", "") === taskToBefore);
 
     const rect = taskToAppend.getBoundingClientRect();
-    const middleY = rect.top + rect.height / 2;
+    const middleY = rect.top + rect.height / 4;
 
     if (y < middleY) {
       taskToAppend.before(document.querySelector(".dragging"));
@@ -36,12 +41,24 @@ export const moveTask = function (
   }
 
   if (oldCard !== newCard) {
-    const taskIndex = oldCard.tasks.indexOf(taskTitle);
+    const taskIndex = oldCard.tasks.indexOf(
+      oldCard.tasks.find((el) => el.title === taskTitle)
+    );
     oldCard.tasks.splice(taskIndex, 1);
   }
 
   newCard.tasks = Array.from(containerToAppend.querySelectorAll("li")).map(
-    (el) => el.textContent.replace("❌", "")
+    (el) => {
+      const obj = {
+        title: el.textContent.replace("❌", ""),
+      };
+
+      const oldTask = tasks.find((el) => el.title === obj.title);
+      if (oldTask && oldTask.date) {
+        obj.date = oldTask.date;
+      }
+      return obj;
+    }
   );
 
   saveData(data, false);

@@ -1,6 +1,5 @@
-import { getData } from "./localStorage/loadLocalStorage.js";
-import { saveData } from "./localStorage/updateLocalStorage.js";
-import { verifyIfCardExist } from "./utils.js";
+import { getData, saveData } from "../utils/localStorage.js";
+import { verifyIfCardExist } from "../utils/verifyIfCardExist.js";
 
 export const addCard = function () {
   const data = getData();

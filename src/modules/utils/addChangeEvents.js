@@ -1,6 +1,6 @@
-import { getData } from "./localStorage/loadLocalStorage.js";
-import { saveData } from "./localStorage/updateLocalStorage.js";
-import { verifyIfCardExist, verifyIfTaskExist } from "./utils.js";
+import { getData, saveData } from "./localStorage.js";
+import { verifyIfCardExist } from "./verifyIfCardExist.js";
+import { verifyIfTaskExist } from "./verifyIfTaskExist.js";
 
 export const addChangeEvents = function (element) {
   const data = getData();

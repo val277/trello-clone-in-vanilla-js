@@ -1,5 +1,4 @@
-import { getData } from "./localStorage/loadLocalStorage.js";
-import { saveData } from "./localStorage/updateLocalStorage.js";
+import { getData, saveData } from "../utils/localStorage.js";
 
 export const changeTaskColor = function (element, cardTitle) {
   const data = getData();

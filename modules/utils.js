@@ -17,6 +17,20 @@ export const refreshBoard = function () {
   });
 };
 
+export const verifyIfTaskExist = (taskTitle) => {
+  const tasks = Array.from(document.querySelectorAll("li")).map((task) =>
+    task.textContent.replace("❌", "")
+  );
+  return tasks.find((task) => task === taskTitle) ? true : false;
+};
+
+export const verifyIfCardExist = (cardTitle) => {
+  const cards = Array.from(document.querySelectorAll(".card h3")).map(
+    (card) => card.textContent
+  );
+  return cards.find((card) => card === cardTitle) ? true : false;
+};
+
 const getNearestElement = function (card, y) {
   const tasks = card.querySelectorAll("li");
 

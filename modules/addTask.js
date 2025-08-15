@@ -1,5 +1,6 @@
 import { getData } from "./localStorage/loadLocalStorage.js";
 import { saveData } from "./localStorage/updateLocalStorage.js";
+import { verifyIfTaskExist } from "./utils.js";
 
 export const addTask = function (cardTitle) {
   const data = getData();
@@ -7,9 +8,12 @@ export const addTask = function (cardTitle) {
 
   const input = document.createElement("input");
   input.addEventListener("blur", () => {
-    if (input.value !== "") {
+    if (input.value !== "" && !verifyIfTaskExist(input.value)) {
       card.tasks.push({ title: input.value });
       saveData(data);
+    } else if (verifyIfTaskExist(input.value)) {
+      alert("A task with that name already exist!");
+      input.remove();
     } else {
       input.remove();
     }

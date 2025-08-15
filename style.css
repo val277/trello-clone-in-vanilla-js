@@ -41,6 +41,8 @@ main {
       gap: 0.5rem;
       h3 {
         background-color: lightgreen;
+        padding-left: 0.5rem;
+        border: solid 1px black;
       }
       .deleteCardBtn {
         position: absolute;
@@ -73,8 +75,9 @@ main {
           display: flex;
           flex-direction: column;
           position: relative;
+          background-color: lightseagreen;
           .deleteTaskBtn {
-            background-color: lightgreen;
+            background-color: lightsteelblue;
           }
           .changeTaskDueDateBtn {
             width: inherit;
@@ -86,8 +89,9 @@ main {
           }
         }
       }
-      button {
+      .addTaskBtn {
         background-color: green;
+        border: solid 1px black;
       }
       input {
         width: 100%;

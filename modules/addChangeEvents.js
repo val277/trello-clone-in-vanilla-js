@@ -1,5 +1,6 @@
 import { getData } from "./localStorage/loadLocalStorage.js";
 import { saveData } from "./localStorage/updateLocalStorage.js";
+import { verifyIfCardExist, verifyIfTaskExist } from "./utils.js";
 
 export const addChangeEvents = function (element) {
   const data = getData();
@@ -16,15 +17,20 @@ export const addChangeEvents = function (element) {
         input.value !== "" &&
         input.value !== element.textContent.replace("❌", "")
       ) {
-        if (element.tagName === "H3") {
+        if (element.tagName === "H3" && !verifyIfCardExist(input.value)) {
           dataElement.title = input.value;
-        } else {
+        } else if (
+          element.tagName === "LI" &&
+          !verifyIfTaskExist(input.value)
+        ) {
           const toReplace = dataElement.tasks.indexOf(
             dataElement.tasks.find(
               (task) => task.title === element.textContent.replace("❌", "")
             )
           );
           dataElement.tasks[toReplace].title = input.value;
+        } else {
+          alert("A task or a card already exst with that name");
         }
         saveData(data);
       } else {

@@ -31,18 +31,21 @@ main {
       border-radius: 0.5rem;
       width: calc(20vw - 1rem);
       min-width: 250px;
-      padding: 1rem;
+      padding: 0.5rem;
       flex-shrink: 0;
       height: 100%;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
       h3 {
         background-color: lightgreen;
       }
       .deleteCardBtn {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 0.7rem;
+        right: 0.7rem;
         background: none;
         border: none;
         width: 1rem;
@@ -51,8 +54,8 @@ main {
       }
       .changeColorBtn {
         position: absolute;
-        top: 0;
-        right: 1.5rem;
+        top: 0.6rem;
+        right: 2rem;
         background-color: lightgreen;
         width: 1.5rem;
         background: none;
@@ -62,20 +65,21 @@ main {
       ul {
         list-style: none;
         padding: 0;
-        background-color: lightyellow;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         li {
           border: solid black 1px;
+          display: flex;
+          flex-direction: column;
           position: relative;
           .deleteTaskBtn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 50%;
             background-color: lightgreen;
-            border: none;
           }
           .changeTaskDueDateBtn {
             width: inherit;
+            border-top: solid 1px black;
+            border-bottom: solid 1px black;
           }
           &.dragging {
             background-color: blueviolet;

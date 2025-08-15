@@ -4,3 +4,6 @@ utiliser cardData plutot que re parse avec le title à chaque fois
 remove le template
 reorganiser utils
 si je bouge un element et que je l'edit ca le renvoi
+empecher les doublons de taches et cards
+bouger les cards entre elles
+colors

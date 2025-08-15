@@ -107,7 +107,7 @@ const createCard = function (cardData) {
 
       const changeTaskDateBtn = document.createElement("input");
       changeTaskDateBtn.type = "datetime-local";
-      changeTaskDateBtn.classList.add("changeTaskDateBtn");
+      changeTaskDateBtn.classList.add("changeTaskDueDateBtn");
       changeTaskDateBtn.addEventListener("change", () =>
         changeTaskDate(changeTaskDateBtn, cardData.title, index)
       );

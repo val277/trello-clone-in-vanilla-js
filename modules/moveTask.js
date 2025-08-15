@@ -27,7 +27,7 @@ export const moveTask = function (
     ).find((el) => el.textContent.replace("❌", "") === taskToBefore);
 
     const rect = taskToAppend.getBoundingClientRect();
-    const middleY = rect.top + rect.height / 4;
+    const middleY = rect.top + rect.height / 2;
 
     if (y < middleY) {
       taskToAppend.before(document.querySelector(".dragging"));

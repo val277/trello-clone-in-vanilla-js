@@ -40,6 +40,8 @@ button,
 textarea,
 select {
   font: inherit;
+  border: none;
+  border-radius: 0;
 }
 
 /* 8. Avoid text overflows */

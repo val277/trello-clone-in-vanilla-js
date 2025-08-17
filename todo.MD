@@ -1,1 +1,2 @@
-bouger les cards entre elles
+style
+couleurs sur les dates

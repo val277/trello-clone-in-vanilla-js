@@ -2,7 +2,7 @@ import { addCardDragAndDrop } from "./addCardDragAndDrop.js";
 import { addChangeEvents } from "../utils/addChangeEvents.js";
 import { deleteCard } from "./deleteCard.js";
 import { changeTaskColor } from "../Task/changeTaskColor.js";
-import { addTaskDragAndDrop } from "../Task/addTaskDragAndDrop.js";
+import { addDraggingClassEvents } from "../utils/addDraggingClassEvents.js";
 import { changeTaskDate } from "../Task/changeTaskDate.js";
 import { deleteTask } from "../Task/deleteTask.js";
 import { addTask } from "../Task/addTask.js";
@@ -12,6 +12,8 @@ export const generateCard = function (cardData) {
 
   const card = document.createElement("article");
   card.classList.add("card");
+  card.draggable = "true";
+  addDraggingClassEvents(card);
   if (cardData.color) {
     card.style.backgroundColor = cardData.color;
   }
@@ -43,7 +45,7 @@ export const generateCard = function (cardData) {
       const task = document.createElement("li");
       task.textContent = el.title;
       task.draggable = "true";
-      addTaskDragAndDrop(task);
+      addDraggingClassEvents(task);
 
       const changeTaskDateBtn = document.createElement("input");
       changeTaskDateBtn.type = "datetime-local";

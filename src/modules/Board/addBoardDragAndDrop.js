@@ -1,5 +1,6 @@
 import { getData, saveData } from "../utils/localStorage.js";
 import { getNearestCard } from "./getNearestCard.js";
+import { refreshBoard } from "../utils/refreshBoard.js";
 
 export const addBoardDragAndDrop = function () {
   const board = document.querySelector(".board");
@@ -29,5 +30,9 @@ export const addBoardDragAndDrop = function () {
 
       saveData(newData, false);
     }
+  });
+
+  board.addEventListener("drop", () => {
+    refreshBoard();
   });
 };

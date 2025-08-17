@@ -18,7 +18,7 @@ export const addCardDragAndDrop = function (container) {
     }
   });
 
-  container.addEventListener("drop", (e) => {
+  container.addEventListener("drop", () => {
     refreshBoard();
   });
 };

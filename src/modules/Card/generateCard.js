@@ -55,6 +55,19 @@ export const generateCard = function (cardData) {
       );
       if (cardData.tasks[index].date) {
         changeTaskDateBtn.value = cardData.tasks[index].date;
+        changeTaskDateBtn.style.textShadow = "0 0 1px #000";
+        const dueDate = new Date(cardData.tasks[index].date);
+        const now = new Date();
+        const timeDiff = dueDate.getTime() - now.getTime();
+        const daysDiff = timeDiff / (1000 * 3600 * 24);
+
+        if (daysDiff < 0) {
+          changeTaskDateBtn.style.color = "#ff6b6b";
+        } else if (daysDiff <= 1) {
+          changeTaskDateBtn.style.color = "#ffa726";
+        } else if (daysDiff <= 3) {
+          changeTaskDateBtn.style.color = "#ffe600";
+        }
       }
 
       const deleteTaskBtn = document.createElement("button");

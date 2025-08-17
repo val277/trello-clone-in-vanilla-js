@@ -2,6 +2,16 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    69.2deg,
+    rgba(77, 143, 251, 1) 35.3%,
+    rgba(202, 51, 255, 1) 100.3%
+  );
 }
 
 header {
@@ -10,12 +20,31 @@ header {
   position: relative;
   background-color: lightblue;
   padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   button {
     position: absolute;
     top: 50%;
     right: 1rem;
     transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
 }
 
 main {
@@ -27,8 +56,6 @@ main {
     display: flex;
     gap: 0.5rem;
     .card {
-      border: solid 2px black;
-      border-radius: 0.5rem;
       width: calc(20vw - 1rem);
       min-width: 250px;
       padding: 0.5rem;
@@ -39,8 +66,10 @@ main {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      &.dragging {
+        opacity: 1%;
+      }
       h3 {
-        background-color: lightgreen;
         padding-left: 0.5rem;
         border: solid 1px black;
       }
@@ -58,10 +87,9 @@ main {
         position: absolute;
         top: 0.6rem;
         right: 2rem;
-        background-color: lightgreen;
         width: 1.5rem;
         background: none;
-        /* border: none; */
+        border: none;
         border-radius: 50%;
       }
       ul {
@@ -73,29 +101,48 @@ main {
         li {
           border: solid black 1px;
           display: flex;
+          padding-left: 10px;
           flex-direction: column;
           position: relative;
-          background-color: lightseagreen;
+          padding: 0 0.5rem;
           .deleteTaskBtn {
-            background-color: lightsteelblue;
+            margin: 0 -0.5rem;
           }
           .changeTaskDueDateBtn {
             width: inherit;
             border-top: solid 1px black;
             border-bottom: solid 1px black;
+            margin: 0 -0.5rem;
+            padding: 0 0.5rem;
           }
           &.dragging {
-            background-color: blueviolet;
+            opacity: 1%;
           }
         }
       }
       .addTaskBtn {
-        background-color: green;
         border: solid 1px black;
       }
       input {
         width: 100%;
       }
+    }
+    h3,
+    button,
+    input {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .card,
+    li {
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8.2px);
+      -webkit-backdrop-filter: blur(8.2px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
   }
 }

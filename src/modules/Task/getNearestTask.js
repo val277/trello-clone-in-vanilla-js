@@ -1,4 +1,4 @@
-export const getNearestElement = function (card, y) {
+export const getNearestTask = function (card, y) {
   const tasks = card.querySelectorAll("li");
 
   return tasks.length > 0

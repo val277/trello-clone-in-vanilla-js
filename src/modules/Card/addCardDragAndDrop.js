@@ -1,5 +1,5 @@
 import { moveTask } from "../Task/moveTask.js";
-import { getNearestElement } from "../Task/getNearestElement.js";
+import { getNearestTask } from "../Task/getNearestTask.js";
 import { refreshBoard } from "../utils/refreshBoard.js";
 
 export const addCardDragAndDrop = function (container) {
@@ -10,7 +10,7 @@ export const addCardDragAndDrop = function (container) {
       task.parentElement.parentElement.querySelector("h3").textContent,
       container.querySelector("h3").textContent,
       task.textContent.replace("❌", ""),
-      getNearestElement(container, e.clientY),
+      getNearestTask(container, e.clientY),
       e.clientY
     );
   });

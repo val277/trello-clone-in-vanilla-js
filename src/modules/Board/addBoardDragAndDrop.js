@@ -62,7 +62,7 @@ export const addBoardDragAndDrop = function () {
               const taskObj = {
                 title: task.textContent.replace("❌", ""),
               };
-              if (task.querySelector("input")) {
+              if (task.querySelector("input").value) {
                 taskObj.date = task.querySelector("input").value;
               }
               obj.tasks.push(taskObj);

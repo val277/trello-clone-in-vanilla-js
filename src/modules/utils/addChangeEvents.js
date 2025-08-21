@@ -14,7 +14,7 @@ export const addChangeEvents = function (element) {
     const input = document.createElement("input");
     input.addEventListener("blur", () => {
       if (
-        input.value !== "" &&
+        input.value.trim() !== "" &&
         input.value !== element.textContent.replace("❌", "")
       ) {
         if (element.tagName === "H3" && !verifyIfCardExist(input.value)) {

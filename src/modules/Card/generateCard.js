@@ -1,4 +1,3 @@
-import { addCardDragAndDrop } from "./addCardDragAndDrop.js";
 import { addChangeEvents } from "../utils/addChangeEvents.js";
 import { deleteCard } from "./deleteCard.js";
 import { changeTaskColor } from "../Task/changeTaskColor.js";
@@ -17,7 +16,6 @@ export const generateCard = function (cardData) {
   if (cardData.color) {
     card.style.backgroundColor = cardData.color;
   }
-  addCardDragAndDrop(card);
 
   const title = document.createElement("h3");
   title.textContent = cardData.title;
@@ -26,11 +24,13 @@ export const generateCard = function (cardData) {
   const deleteCardBtn = document.createElement("button");
   deleteCardBtn.textContent = "❌";
   deleteCardBtn.classList.add("deleteCardBtn");
+  deleteCardBtn.ariaLabel = "Delete card";
   deleteCardBtn.addEventListener("click", () => deleteCard(cardData.title));
 
   const changeCardColorBtn = document.createElement("input");
   changeCardColorBtn.type = "color";
   changeCardColorBtn.classList.add("changeColorBtn");
+  changeCardColorBtn.ariaLabel = "Change card color";
   changeCardColorBtn.addEventListener("change", () =>
     changeTaskColor(changeCardColorBtn, cardData.title)
   );
@@ -50,6 +50,7 @@ export const generateCard = function (cardData) {
       const changeTaskDateBtn = document.createElement("input");
       changeTaskDateBtn.type = "datetime-local";
       changeTaskDateBtn.classList.add("changeTaskDueDateBtn");
+      changeTaskDateBtn.ariaLabel = "Change task due date";
       changeTaskDateBtn.addEventListener("change", () =>
         changeTaskDate(changeTaskDateBtn, cardData.title, index)
       );
@@ -73,6 +74,7 @@ export const generateCard = function (cardData) {
       const deleteTaskBtn = document.createElement("button");
       deleteTaskBtn.textContent = "❌";
       deleteTaskBtn.classList.add("deleteTaskBtn");
+      deleteTaskBtn.ariaLabel = "Delete task";
       deleteTaskBtn.addEventListener("click", () =>
         deleteTask(cardData.title, index)
       );

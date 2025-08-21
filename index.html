@@ -3,9 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Welcome to Kankan Board" />
     <title>Welcome to Kankan Board</title>
     <link rel="stylesheet" href="./src/css/_reset.css" />
     <link rel="stylesheet" href="./src/css/style.css" />
+    <!-- PREFETCH POUR PAS RALENTIR LA CHARGEMENT DE LA PAGE AU CONTINUE-->
+    <link rel="prefetch" href="src/css/_reset.css" />
+    <link rel="prefetch" href="src/css/style.css" />
+    <link rel="prefetch" href="src/app.html" />
     <style>
       body {
         display: flex;
@@ -19,11 +24,6 @@
           gap: 1rem;
           width: 66%;
           padding: 6rem;
-          background: rgba(255, 255, 255, 0.2);
-          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-          backdrop-filter: blur(5px);
-          -webkit-backdrop-filter: blur(5px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
           border-radius: 1rem;
           color: #fff;
           &::before {
@@ -34,37 +34,47 @@
             transform: translate(-50%, -50%);
             width: 66%;
             height: 66%;
-            background-image: url("./src/assets/welcome/welcomeBoard.svg");
+            background-image: url("./src/assets/images/welcomeBoard.svg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             z-index: -1;
           }
+          a {
+            text-decoration: none;
+            color: #000;
+          }
           button {
             width: fit-content;
             border-radius: 1rem;
-            a {
-              text-decoration: none;
-              color: #000;
-              &:hover {
-                text-decoration: underline;
-              }
+            &:hover,
+            &:focus {
+              text-decoration: underline;
             }
+          }
+        }
+      }
+      @media (max-width: 768px) {
+        body {
+          main {
+            padding: 2rem;
           }
         }
       }
     </style>
   </head>
   <body>
-    <main>
+    <main class="reusableBlur">
       <h1>Kanban</h1>
       <h2>Kanban lets you work more efficiently</h2>
       <p>
         Kanban's boards, lists and cards enable you to organize and prioritize
         your projects in a fun, flexible and rewarding way.
       </p>
-      <button><a href="app.html">Continue</a></button>
+      <a href="./src/app.html" aria-label="Continue to the app">
+        <button>Continue</button>
+      </a>
     </main>
   </body>
 </html>

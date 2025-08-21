@@ -7,7 +7,7 @@ export const addTask = function (cardTitle) {
 
   const input = document.createElement("input");
   input.addEventListener("blur", () => {
-    if (input.value !== "" && !verifyIfTaskExist(input.value)) {
+    if (input.value.trim() !== "" && !verifyIfTaskExist(input.value)) {
       card.tasks.push({ title: input.value });
       saveData(data);
     } else if (verifyIfTaskExist(input.value)) {
